@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
 
     Swal.fire({
       allowOutsideClick: false, //prevenir cerrar el alert al clicar
-      type: 'info',
+      icon: 'info',
       text: 'Espere por favor ...'
     });
     //METODO PARA QUE NO APAREZCA BOTON DE ACEPTAR/OK
@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
       Swal.close();
       this.router.navigateByUrl('/home');
       Toast.fire({
-        type: 'success',
+        icon: 'success',
         title: 'Logeado'
       })
       //Controlo si se ha pulsado correctamente
@@ -70,7 +70,7 @@ export class LoginComponent implements OnInit {
       console.log(error);
       console.log(error.error.error.message);
       Swal.fire({
-        type: 'error',
+        icon: 'error',
         title: 'Error al autenticar',
         text: error.error.error.message
       });

@@ -30,7 +30,7 @@ export class RegistroComponent implements OnInit {
     }
     Swal.fire({
       allowOutsideClick: false,
-      type: 'info',
+      icon: 'info',
       text: 'Espere por favor...'
     });
     //Metodo para que no aparezca boton de aceptar
@@ -50,7 +50,7 @@ export class RegistroComponent implements OnInit {
       console.log(error);
       console.log(error.error.error.message);
       Swal.fire({
-        type: 'error',
+        icon: 'error',
         title: 'Error al autenticar',
         text: error.error.error.message
       });
