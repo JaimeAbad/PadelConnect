@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Registro</title>
+  </head>
+  <body>
+    <h2>Crear Nueva Cuneta</h2>
+    <!-- hay que importar FormsModule en module para poder usar ngModel aqui -->
+
+    <div class="limiter">
+      <div class="container-login100">
+        <div class="wrap-login100 p-t-50 p-b-90">
+          <form (ngSubmit)= "validarFormulario(formularioReferenciaLocal)"
+                #formularioReferenciaLocal="ngForm"
+                class="login100-form validate-form flex-sb flex-w">
+
+              <span class="login100-form-title p-b-51">
+                  Crear nueva cuenta
+              </span>
+
+              <span *ngIf="formularioReferenciaLocal.submitted &&
+                            formularioReferenciaLocal.controls['nombre'].errors"
+                            class="text-danger">
+                El nombre es obligatorio
+              </span>
+
+              <div class="wrap-input100 m-b-16">
+                <input class="input100"
+                       type="nombre"
+                       name="nombre"
+                       [(ngModel)]="usuario.nombre"
+                       required
+                       minlength="2"
+                       nombre
+                       placeholder="Nombre y apellidos">
+                <span class="focus-input100"></span>
+              </div>
+              <span *ngIf="formularioReferenciaLocal.submitted &&
+                            formularioReferenciaLocal.controls['email'].errors"
+                            class="text-danger animated fadeIn">
+                El correo es obligatorio
+              </span>
+              <div class="wrap-input100 m-b-16">
+                <input class="input100"
+                       type="email"
+                       name="email"
+                       [(ngModel)]="usuario.email"
+                       required
+                       email
+                       placeholder="Email">
+              </div>
+              <span *ngIf="formularioReferenciaLocal.submitted &&
+                            formularioReferenciaLocal.controls['password'].errors"
+                            class="text-danger">
+                Contraseña Inválida. Debe contener almenos 6 caracteres.
+              </span>
+              <div class="wrap-input100 m-b-16" data-validate = "Password">
+                <input class="input100"
+                       type="password"
+                       name="password"
+                       [(ngModel)]="usuario.password"
+                       required
+                       minlength="6"
+                       password
+                       placeholder="Password">
+                <span class="focus-input100"></span>
+              </div>
+              <div class="flex-sb-m w-full p-t-3 p-b-24">
+                <div class="contact100-form-checkbox">
+                  <input [(ngModel)]="recordarme"
+                         class="input-checkbox100" id="ckb1"
+                         type="checkbox" name="remember-me" >
+                  <label class="label-checkbox100" for ="ckb1">
+                    Recordar mi usuario
+                  </label>
+                </div>
+                <a routerLink="/login" class="txt1">
+                  ¿Ya tienes cuenta? / Ingresar
+                </a>
+              </div>
+
+              <div class="wrap-input100 m-b-16">
+                <button class="login100-form-btn"
+                       type="submit"
+                       name="ngSubmit"
+                       placeholder="ngSubmit">Crear cuenta</button>
+
+              </div>
+
+          </form>
+
+        </div>
+
+      </div>
+    </div>
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
