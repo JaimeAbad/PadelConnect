@@ -71,7 +71,7 @@ export class LoginComponent implements OnInit {
       console.log(error.error.error.message);
       Swal.fire({
         icon: 'error',
-        title: 'Error al autenticar',
+        title: 'Has introducido incorrectamente tu cuenta de PadelConnect o tu contraseña.',
         text: error.error.error.message
       });
     });

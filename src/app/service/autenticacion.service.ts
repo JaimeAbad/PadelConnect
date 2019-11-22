@@ -70,7 +70,7 @@ export class AutenticacionService {
   }
 
   salir(){
-    localStorage.removeItem('token');
+    localStorage.removeItem('email');
   }
 
 
