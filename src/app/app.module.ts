@@ -11,6 +11,7 @@ import { RegistroComponent } from './pages/registro/registro.component';
 import { NavbarComponent } from './pages/navbar/navbar.component';
 import { APP_ROUTING } from './app.routes';
 import { AutenticacionService } from './service/autenticacion.service';
+import { PrincipalComponent } from './pages/principal/principal.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AutenticacionService } from './service/autenticacion.service';
     HomeComponent,
     LoginComponent,
     RegistroComponent,
-    NavbarComponent
+    NavbarComponent,
+    PrincipalComponent
   ],
   imports: [
     BrowserModule,
