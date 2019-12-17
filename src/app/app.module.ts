@@ -12,6 +12,7 @@ import { NavbarComponent } from './pages/navbar/navbar.component';
 import { APP_ROUTING } from './app.routes';
 import { AutenticacionService } from './service/autenticacion.service';
 import { PrincipalComponent } from './pages/principal/principal.component';
+import { PartidoComponent } from './pages/partido/partido.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PrincipalComponent } from './pages/principal/principal.component';
     LoginComponent,
     RegistroComponent,
     NavbarComponent,
-    PrincipalComponent
+    PrincipalComponent,
+    PartidoComponent
   ],
   imports: [
     BrowserModule,
