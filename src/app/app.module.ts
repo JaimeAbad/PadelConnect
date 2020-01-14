@@ -13,6 +13,7 @@ import { APP_ROUTING } from './app.routes';
 import { AutenticacionService } from './service/autenticacion.service';
 import { PrincipalComponent } from './pages/principal/principal.component';
 import { PartidoComponent } from './pages/partido/partido.component';
+import { UsuarioModel } from './models/usuario.model';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { PartidoComponent } from './pages/partido/partido.component';
     HttpClientModule,
     APP_ROUTING,
   ],
-  providers: [AutenticacionService],
+  providers: [AutenticacionService, UsuarioModel],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

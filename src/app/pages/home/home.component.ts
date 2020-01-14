@@ -19,4 +19,10 @@ export class HomeComponent implements OnInit {
     this.autenticacion.salir();
     this.router.navigateByUrl('/login');
   }
+  configuracion(){
+    this.router.navigateByUrl('/principal');
+  }
+  verPartido() {
+    this.router.navigate(["/partido"]);
+  }
 }
