@@ -15,10 +15,6 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  cerrarSesion(){
-    this.autenticacion.salir();
-    this.router.navigateByUrl('/login');
-  }
   configuracion(){
     this.router.navigateByUrl('/principal');
   }

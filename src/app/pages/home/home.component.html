@@ -3,20 +3,11 @@
   <h1>Social Padel</h1>
   <h5>Bienvenido, contacta con otros usuarios y organiza tus partidos, rapido y sencillo.</h5>
   <hr>
-<div>
-  <button type="button" name="button" (click)= "configuracion()">Configurar partido</button>
-</div>
-  <div class="card-columns m-5 animated fadeIn">
-
-    <div (click)="verPartido()">
-      <img src="assets/images/icons/pista.jpg" alt="">
-    </div>
+  <div>
+    <button type="button" name="button" (click)= "configuracion()">Configurar partido</button>
   </div>
-
-
-  <button class="btn btn-outline-danger"
-          (click)= "cerrarSesion()">
-    Cerrar Sesión
-  </button>
+  <div>
+    <button type="button" name="button" (click)= "verPartido()">Ver partidos disponibles</button>
+  </div>
 
 </div>
