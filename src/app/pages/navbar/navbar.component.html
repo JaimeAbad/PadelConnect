@@ -23,9 +23,9 @@
         <span class="sr-only">(current)</span>
       </a>
       <div class="dropdown-content">
-        <a href="#">Configurar Partido</a>
-        <a href="#">Ver Partidos</a>
-        <a href="#">About Us</a>
+        <a (click)= "configuracion()">Organizar Partido</a>
+        <a (click)= "verPartido()">Ver Partidos</a>
+        <a (click)= "info()">About Us</a>
       </div>
     </div>
 
@@ -39,14 +39,10 @@
          *ngIf="!autenticacion.comprobarEstarAutenticado()" >
           Regístrate
         </a>
-        <a class="nav-link" [routerLink]="['principal']"
-         *ngIf="autenticacion.comprobarEstarAutenticado()" >
-          CONFIGURAR PARTIDO
-        </a>
       </li>
     </ul>
 
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav ml-auto">
       <li>
       <button *ngIf="autenticacion.comprobarEstarAutenticado()" class="btn btn-outline-danger"
               (click)= "cerrarSesion()">
@@ -55,10 +51,6 @@
       </li>
     </ul>
   </div>
-
-
-
-
 
 
 </nav>

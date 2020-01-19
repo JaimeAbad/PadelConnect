@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -20,6 +20,8 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { FooterComponent } from './pages/footer/footer.component';
+import { DataComponent } from './pages/data/data.component';
 
 
 @NgModule({
@@ -30,7 +32,9 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     RegistroComponent,
     NavbarComponent,
     PrincipalComponent,
-    PartidoComponent
+    PartidoComponent,
+    FooterComponent,
+    DataComponent
   ],
   imports: [
     FormsModule,
@@ -46,6 +50,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     AppRoutingModule,
     HttpClientModule,
     APP_ROUTING,
+    ReactiveFormsModule
   ],
   providers: [AutenticacionService, UsuarioModel],
   bootstrap: [AppComponent]

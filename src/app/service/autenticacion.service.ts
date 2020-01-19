@@ -9,6 +9,7 @@ import { map, delay } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AutenticacionService {
+  [x: string]: Observable<boolean>;
   private url='https://identitytoolkit.googleapis.com/v1/accounts';
   private apiKey='AIzaSyAPqOGR8UunOrxu5Fs8FCw-laSArvFiIPY';
   private urlData= 'https://padelconnect-18067.firebaseio.com';

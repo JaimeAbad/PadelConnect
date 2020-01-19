@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 
 @Component({
@@ -9,13 +8,11 @@ import { Router } from '@angular/router';
 })
 export class PartidoComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor() { }
 
   ngOnInit() {
   }
 
-  volver() {
-    this.router.navigate(["/principal"]);
-  }
+
 
 }

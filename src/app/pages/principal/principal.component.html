@@ -1,80 +1,117 @@
-<!-- <div class="container">
-  <div>
-    <p>Bienvenido a PadelConnect !</p>
-  </div>
-<div class="wrap-input100">
-  <input class="" type="text" placeholder="Nombre del partido" value="">
-</div>
-<div class="wrap-input100">
-  <input type="text" placeholder="Telefono" value="">
-</div>
-<div class="wrap-input100">
-  <input type="text" placeholder="Nombre creador" value="">
-</div>
-<div class="wrap-input100">
-  <input type="text" placeholder="Ubicacion" value="">
-</div>
-<div class="wrap-input100">
-  <input type="text" placeholder="match">
-</div>
-
-</div> -->
-<form>
-  <div class="form-row">
-    <div class="form-group col-md-4">
+<!-- <h2>ORGANIZAR PARTIDO</h2> -->
+<form (ngSubmit)="guardar(forma)" #forma="ngForm" novalidate="">
+  <div class="form-row" >
+    <div class="form-group col-md-4" [ngClass]="{'has-danger': nombre.errors?.minlength || nombre.errors?.required }">
       <label for="inputName">Nombre</label>
-      <input type="text" class="form-control" id="inputName">
+      <input type="text"
+            class="form-control"
+            placeholder="Nombre"
+            name="nombre"
+            [(ngModel)]="usuario.nombre"
+            required
+            minlength="3"
+            #nombre="ngModel">
+            <div *ngIf="nombre.errors?.required">
+              El nombre es obligatorio.
+            </div>
+            <div *ngIf="nombre.errors?.minlength">
+              El nombre debe tener al menos 3 carácteres.
+            </div>
     </div>
-  </div>
-
-  <div class="form-row">
-    <div class="form-check">
-      <label for="inputPosition">Posicion </label><br>
-      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
-      <label class="form-check-label" for="exampleRadios1">
-        Drive
-      </label>
-      <br>
-      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
-      <label class="form-check-label" for="exampleRadios1">
-          Reves
-      </label>
-      <br>
-      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
-      <label class="form-check-label" for="exampleRadios1">
-          Adaptable
-      </label>
+    <div class="form-group col-md-4" [ngClass]="{'has-danger': correo.errors?.pattern || correo.errors?.required }">
+      <label for="inputEmail">Correo electrónico</label>
+      <input type="email"
+              class="form-control"
+              placeholder="Correo Electrónico"
+              name="email"
+              required
+              [(ngModel)]="usuario.email"
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+              #correo="ngModel">
+              <div *ngIf="correo.errors?.required">
+                El campo es obligatorio.
+              </div>
+              <div *ngIf="correo.errors?.pattern">
+                El formato del correo es erróneo.
+              </div>
     </div>
   </div>
 
   <div class="form-group">
-    <label for="inputAddress">Direccion 1</label>
-    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-  </div>
-  <div class="form-group">
-    <label for="inputAddress2">Direccion 2</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+    <label for="inputAddress2">Dirección club</label>
+    <input type="text" class="form-control" id="inputAddress2" placeholder="Club deportivo Montepalma">
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
-      <label for="inputCity">Ciudad</label>
+      <label for="inputCity">Localidad y Provincia</label>
       <input type="text" class="form-control" id="inputCity">
     </div>
+
     <div class="form-group col-md-4">
-      <label for="inputState">Pais</label>
-      <select id="inputState" class="form-control">
-        <option selected>Elegir...</option>
-        <option>...</option>
+      <label>Pais</label>
+      <select [(ngModel)]="usuario.pais" class="form-control" name="pais">
+        <option value="">Elegir...</option>
+        <option *ngFor="let pais of paises" [value] ="pais.nombre">
+          {{ pais.nombre }}
+        </option>
       </select>
     </div>
-    <!-- <div class="form-group col-md-2">
-      <label for="inputZip">Nivel (Sinceridad)</label>
-      <input type="text" class="form-control" id="inputZip">
-    </div> -->
+
   </div>
-  <div class="form-group">
+<!--   <div class="form-group">
     <label for="customRange1">Indica tu nivel: </label>
 <input type="range" class="custom-range" id="customRange1">
+  </div> -->
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Valora tu nivel</label>
+    <select class="form-control" id="exampleFormControlSelect1">
+      <option>1</option><option>2</option>
+      <option>3</option><option>4</option>
+      <option>5</option><option>6</option>
+      <option>7</option><option>8</option>
+      <option>9</option><option>10</option>
+    </select>
   </div>
-  <button type="submit" class="btn btn-primary">CREAR PARTIDO</button>
+
+
+  <div class="form-row">
+  <label for="inputPosition">Posicion </label>
+    <div class="form-check">
+      <div class="col-md-8">
+        <div class="custom-control custom-radio">
+          <input [(ngModel)]="usuario.posicion" type="radio" name="posicion" class="custom" value="drive">
+          <label class="form-check-label" for="exampleRadios1">
+            Drive
+          </label>
+        </div>
+
+        <div class="custom-control custom-radio">
+          <input [(ngModel)]="usuario.posicion" type="radio" name="posicion" class="custom" value="reves">
+          <label class="form-check-label" for="exampleRadios2">
+              Revés
+          </label>
+        </div>
+
+        <div class="custom-control custom-radio">
+          <input [(ngModel)]="usuario.posicion" type="radio" name="posicion" class="custom" value="mixto">
+          <label class="form-check-label" for="exampleRadios3">
+              Mixto
+          </label>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
 </form>
+<div class="form-group row">
+  <label class="col-2 col-form-label">&nbsp;</label>
+  <div class="input-group col-md-8">
+    <button [disabled]="!forma.valid"
+            type="submit"
+            class="btn btn-outline-primary">
+      CREAR PARTIDO
+    </button>
+  </div>
+</div>
